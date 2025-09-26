@@ -1,0 +1,54 @@
+@for $a from 1 through 12
+    .row-#{$a}
+        @extend .vertical-spacing-md
+
+        border-radius: $border-radius
+        display:       flex
+        flex-wrap:     wrap
+
+        @for $i from 1 through $a
+            & > .col-#{$i}
+                flex:        0 0 auto
+                flex-shrink: 0
+                max-width:   100%
+                width:       calc(($i / $a) * 100%)
+
+        &.no-spacing
+            margin-left:  0
+            margin-right: 0
+            row-gap:      0
+
+            @for $i from 1 through $a
+                & > .col-#{$i}
+                    padding-left:  0
+                    padding-right: 0
+
+                    & > *
+                        border-radius: 0
+
+        &.compact
+            @extend .vertical-spacing-sm
+
+            margin-left:  calc($spacing-sm / 2 * -1)
+            margin-right: calc($spacing-sm / 2 * -1)
+            row-gap:      $spacing-sm
+
+            @for $i from 1 through $a
+                & > .col-#{$i}
+                    padding-left:  calc($spacing-sm / 2)
+                    padding-right: calc($spacing-sm / 2)
+
+        &
+            @extend .vertical-spacing-md
+
+            margin-left:  calc($spacing-md / 2 * -1)
+            margin-right: calc($spacing-md / 2 * -1)
+            row-gap:      $spacing-md
+
+            @for $i from 1 through $a
+                & > .col-#{$i}
+                    padding-left:  calc($spacing-md / 2)
+                    padding-right: calc($spacing-md / 2)
+
+.row
+    @extend .row-12

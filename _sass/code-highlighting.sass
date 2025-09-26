@@ -1,0 +1,124 @@
+div.highlighter-rouge
+    @extend .vertical-spacing-md
+
+    .highlight
+
+        /*
+         * .c:   Comment
+         * .cd
+         * .ch:  Comment.Hashbang
+         * .cm:  Comment.Multiline
+         * .cp:  Comment.Preproc
+         * .cpf: Comment.PreprocFile
+         * .cs:  Comment.Special
+         * .c1:  Comment.Single
+         */
+
+        .c, .cd, .ch, .cm, .cp, .cpf, .cs, .c1
+            color:      light-dark(light($black), dark($white))
+            font-style: italic
+
+        ////////////////////////////////////////////////////////////////////////////
+
+        /*
+         * .dl: Literal.String.Delimiter
+         */
+
+        .dl
+            color:      light-dark(dark($green), light($green))
+            font-style: italic
+
+        ////////////////////////////////////////////////////////////////////////////
+
+        /*
+         * .ge: Generic.Emph
+         * .gh: Generic.Heading
+         * .gs: Generic.Strong
+         * .gu: Generic.Subheading
+         */
+
+        .ge
+            font-style: italic
+
+        .gh
+            color:       light-dark(dark($orange), light($orange))
+            font-size:   2rem
+            font-weight: 600
+
+        .gs
+            font-weight: 500
+
+        .gu
+            color:       light-dark(dark($orange), light($orange))
+            font-size:   1.5rem
+            font-weight: 600
+
+        ////////////////////////////////////////////////////////////////////////////
+
+        /*
+         * .k:  Keyword
+         * .kn: Keyword.Namespace
+         * .kt: Keyword.Type
+         */
+
+        .k
+            color: light-dark(dark($blue), light($blue))
+
+        .kn
+            color: light-dark(dark($red), light($red))
+
+        .kt
+            text-decoration:           underline
+            text-decoration-thickness: $border-sm
+            text-underline-offset:     $border-md
+
+        ////////////////////////////////////////////////////////////////////////////
+
+        /*
+         * .n
+         * .na: Name.Attribute
+         * .nc: Name.Class
+         * .nf: Name.Function
+         * .nt: Name.Tag
+         * .nb: Name.Builtin
+         * .nl: Name.Label
+         * .nv: Name.Variable
+         */
+
+        .n
+            font-weight: 500
+
+        .na
+            color: light-dark(dark($red), light($red))
+
+        .nc, .nf, .nt
+            color:       light-dark(dark($pink), light($pink))
+            font-weight: 500
+
+        .nb, .nl, .nv
+            color:       light-dark(dark($blue), light($blue))
+            font-weight: 500
+
+        ////////////////////////////////////////////////////////////////////////////
+
+        /*
+         * .s:  Literal.String
+         * .s1: Literal.String.Single
+         * .s2: Literal.String.Double
+         * .sb: Literal.String.Backtick
+         * .sx: Literal.String.Other
+         */
+
+        .s, .s1
+            color:      light-dark(dark($green), light($green))
+            font-style: italic
+
+        .s2
+            color:      light-dark(dark($blue), light($green))
+            font-style: italic
+
+        .sb
+            color: light-dark(dark($purple), light($purple))
+
+        .sx
+            color: light-dark(dark($orange), light($orange))

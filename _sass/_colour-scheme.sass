@@ -1,0 +1,76 @@
+.colour-scheme
+    margin-left:  0
+    margin-right: 0
+    row-gap:      0
+
+    @media print
+        break-inside: avoid // Avoid it getting broken across two pages.
+
+    & > div
+        @extend .col-1
+
+        padding-left:       0
+        padding-right:      0
+        print-color-adjust: exact
+
+        @each $word, $colour in $colour-variations
+            &.#{$word}-tint
+                background-color: tint($colour)
+            &.#{$word}-lighter
+                background-color: lighter($colour)
+            &.#{$word}-light
+                background-color: light($colour)
+            &.#{$word}
+                background-color: $colour
+            &.#{$word}-dark
+                background-color: dark($colour)
+            &.#{$word}-darker
+                background-color: darker($colour)
+            &.#{$word}-shade
+                background-color: shade($colour)
+
+        &.white-tint
+            background-color: tint($white)
+        &.white-lighter
+            background-color: lighter($white)
+        &.white-light
+            background-color: light($white)
+        &.white
+            background-color: $white
+        &.white-dark
+            background-color: dark($white)
+        &.white-darker
+            background-color: darker($white)
+        &.white-shade
+            background-color: shade($white)
+
+        &.black-tint
+            background-color: tint($black)
+        &.black-lighter
+            background-color: lighter($black)
+        &.black-light
+            background-color: light($black)
+        &.black
+            background-color: $black
+        &.black-dark
+            background-color: dark($black)
+        &.black-darker
+            background-color: darker($black)
+        &.black-shade
+            background-color: shade($black)
+
+
+
+.colour-scheme-basic
+    @extend .row-9
+    @extend .colour-scheme
+
+    & > div
+        aspect-ratio: 1 / 1
+
+.colour-scheme-complex
+    @extend .row-7
+    @extend .colour-scheme
+
+    & > div
+        aspect-ratio: 8 / 5

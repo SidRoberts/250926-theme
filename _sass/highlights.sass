@@ -1,0 +1,26 @@
+mark
+    background-color:   light-dark(light($yellow), dark($yellow))
+    border-radius:      $border-radius
+    color:              light-dark($black, $white)
+    padding:            0.25rem
+    print-color-adjust: exact
+
+    @each $word, $colour in $colour-variations
+        &.#{$word}
+            background-color: $colour
+
+            @if lightness($colour) > 60
+                color: $black
+            @else
+                color: $white
+
+    &.opposite
+        background-color: light-dark($black, $white)
+        color:            light-dark($white, $black)
+
+        @media print
+            color: #FFF
+
+.box.yellow, .callout.yellow .details.yellow > summary, blockquote.yellow
+    mark
+        background-color: $red

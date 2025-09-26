@@ -1,0 +1,44 @@
+blockquote
+    @extend .vertical-spacing-lg
+
+    border-radius: $border-radius
+    font-size:     2rem
+    font-weight:   900
+    overflow:      hidden
+    padding:       $spacing-md
+
+    @media (max-width: $view-md-cutoff)
+        padding: $spacing-md $spacing-sm
+
+    @media print
+        border:       solid $border-lg currentcolor
+        break-inside: avoid // Avoid it getting broken across two pages.
+
+    ////////////////////////////////////////////////////////////////////////////
+
+    &
+        background-color: $blue
+
+        @media (prefers-color-scheme: dark)
+            color: $black
+
+        @media print
+            border-color: $blue
+
+    @each $word, $colour in $colour-variations
+        &.#{$word}
+            background-color: $colour
+
+            @media (prefers-color-scheme: dark)
+                color: $black
+
+            @media print
+                border-color: $colour
+
+    &.opposite
+        background-color: light-dark($black, $white)
+        color:            light-dark($white, $black)
+
+        @media print
+            border-color: $black
+            color:        $white

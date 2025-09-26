@@ -1,0 +1,33 @@
+name: Check generated JS
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v5
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Install deps
+        run: npm install
+
+      - name: Build JS
+        run: npm run build:js
+
+      - name: Check generated JS
+        run: |
+          if ! git diff --quiet assets/scripts.js; then
+            echo "::error::Built assets are out of date. Please run 'npm run build:js' and commit the changes."
+            exit 1
+          else
+            echo "::notice::assets/scripts.js is up to date."
+          fi

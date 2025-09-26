@@ -1,0 +1,32 @@
+.box
+    @extend .vertical-spacing-md
+
+    border-radius: $border-radius
+    overflow:      hidden
+    overflow-x:    scroll
+    padding:       $spacing-md
+
+    @media (max-width: $view-md-cutoff)
+        padding: $spacing-md $spacing-sm
+
+    @media print
+        border: solid $border-md $blue
+
+    code
+        color: inherit
+
+    ////////////////////////////////////////////////////////////////////////////
+
+    &
+        background-color: light-dark(light($blue), dark($blue))
+        color:            light-dark($black, $white)
+
+        @media print
+            border-color: $blue
+
+    @each $word, $colour in $colour-variations
+        &.#{$word}
+            background-color: light-dark(light($colour), dark($colour))
+
+            @media print
+                border-color: $colour

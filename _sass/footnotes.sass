@@ -1,0 +1,19 @@
+.footnote
+    text-decoration: none
+    margin:          0 $border-lg
+
+
+.footnotes
+    @extend small
+
+    border-top:  solid $border-md $yellow
+    color:       light-dark(light($black), dark($white))
+    margin-top:  $spacing-md
+    padding-top: $spacing-md
+
+    li:target
+        color: light-dark($black, $white)
+
+    .reversefootnote
+        margin-left:     $spacing-sm
+        text-decoration: none
