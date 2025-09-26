@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "build:js": "esbuild assets/js/*.js --bundle --outfile=assets/main.js --minify"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  }
+}
